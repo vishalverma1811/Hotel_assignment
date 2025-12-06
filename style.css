@@ -1,0 +1,286 @@
+:root {
+    --color-salmon: #ff7e79;
+    --color-salmon-dark: #ff6b66;
+    --color-bg-yellow: #fff9c4;
+    /* Pale yellow */
+    --color-bg-pink: #ffcdd2;
+    /* Pale pink */
+    --font-serif: 'Merriweather', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background-color: var(--color-salmon);
+    padding: 1.5rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--font-serif);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.menu-icon {
+    cursor: pointer;
+    margin-left: 1rem;
+    width: 30px;
+    height: auto;
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    min-height: 80vh;
+    background: linear-gradient(to right, #fffde7 50%, #fff 50%);
+    /* Split background hack base */
+}
+
+/* Custom background for hero to match design: Yellow fade to Pink on left, Image on right */
+#hero {
+    background: linear-gradient(90deg, #fff9c4 0%, #ffccbc 50%, #ffffff 50%);
+    background: linear-gradient(90deg, #fff59d 0%, #ffccbc 45%, #000 45%);
+    /* Placeholder for split */
+    position: relative;
+}
+
+/* 
+   Refining the background:
+   Left side is a gradient from pale yellow to pale pink.
+   Right side is the image.
+*/
+#hero {
+    background: linear-gradient(135deg, #fff9c4 0%, #ffccbc 100%);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #fffde7 0%, #ffccbc 100%);
+    /* Pale yellow to pink */
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 3rem;
+    max-width: 500px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: var(--color-salmon);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    /* Usually buttons like this are uppercase, checking design... "Click Me" is mixed case in design */
+    text-transform: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-salmon-dark);
+}
+
+
+/* Gallery Section */
+#gallery {
+    /* Gradient background: Yellow to Pink/Purple */
+    background: linear-gradient(180deg, #fff9c4 0%, #ffccbc 50%, #f8bbd0 100%);
+    background: linear-gradient(to bottom, #fffde7, #f8bbd0, #e1bee7);
+    /* Approximate */
+    background: linear-gradient(180deg, #fff59d 0%, #ffccbc 40%, #f48fb1 100%);
+    /* More vibrant match */
+    padding: 4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    /* Increased right column width for text */
+    gap: 1.5rem;
+    /* Slightly smaller gap */
+    width: 100%;
+    max-width: 1200px;
+    /* Constrain max width more */
+    margin: 0 auto;
+}
+
+.col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.col-left img {
+    width: 100%;
+    height: 220px;
+    /* Reduced from 300px */
+    object-fit: cover;
+}
+
+.col-center {
+    display: flex;
+}
+
+.col-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 464px;
+    /* Match left col: 220+220+24(gap) approx */
+}
+
+.col-right {
+    display: flex;
+    align-items: center;
+}
+
+.info-box {
+    background-color: var(--color-salmon);
+    padding: 2.5rem;
+    /* Reduced padding */
+    color: black;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-box .subtitle {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.info-box h2 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.link-arrow {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.link-arrow .arrow {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .col-right {
+        grid-column: span 2;
+    }
+
+    .info-box {
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    nav {
+        gap: 1rem;
+    }
+
+    #hero {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        padding: 3rem 2rem;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .col-right {
+        grid-column: span 1;
+    }
+
+    .col-center img {
+        height: 400px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
